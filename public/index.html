@@ -8,12 +8,23 @@
                 var socket = io(); //1
                 socket.on('greeting', function(data){//4
                     console.log(data.msg); //5
-                    socket.emit("Thankyou", {msg: 'Thank you for connecting me! - Client'}); //6
+                    socket.emit("thankyou", {msg: 'Thank you for connecting me! - Client'}); //6
                 })
             })
         </script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="/stylesheet.css" rel="stylesheet" />
     </head>
     <body>
-        <h1>Fun with sockets</h1>
+        <div id="mario-chat">
+            <h2>Survey Chat</h2>
+            <div id="chat-window">
+                <div id="output"></div>
+            </div>
+            <input id="handle" type="text" placeholder="Handle" />
+            <input id="message" type="text" placeholder="Message" />
+            <button type="submit"  id="send">Send</button>
+        </div>
+
     </body>
 </html>

@@ -1,9 +1,15 @@
+//imports
 const express = require('express')
-const app = express()
-app.use(express.static(__dirname + "/public"))
-const server = app.listen(1337)
 const io = require('socket.io') (server)
-var counter = 0
+
+//app setup
+const app = express()
+const server = app.listen(1337)
+
+//static files
+app.use(express.static(__dirname + "/public"))
+
+//socket setup
 io.on('connection',function (socket) {//2
 
 socket.emit('greeting', {msg:'Greetins from server Node, brought to you by Sockets! - Server'}); //3
@@ -11,3 +17,6 @@ socket.emit('greeting', {msg:'Greetins from server Node, brought to you by Socke
         console.log(data.msg)
     });
 });
+
+
+var counter = 0
